@@ -2,7 +2,7 @@
 
 Thanks for your interest.
 
-We are looking for a React.JS application with Node.JS backend using GraphQL. 
+We are looking for a `React.JS` application with `Node.JS` backend using `GraphQL`. 
 
 ## Getting Started
 
