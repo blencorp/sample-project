@@ -1,12 +1,19 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import resolvers from './resolvers';
-import typeDefs  from './schema';
+import dotenv from 'dotenv'
+import schema from './schema';
 
-const server = new ApolloServer({ typeDefs, resolvers });
 
-const { url } = await startStandaloneServer(server, {
-    listen: { port: 4000 },
-  });
+dotenv.config();
+const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 4000;
 
-console.log(`🚀  Server ready at: ${url}`);
+const server = new ApolloServer({ schema });
+
+const startServer = async () => {
+    const { url } = await startStandaloneServer(server, {
+        listen: { port },
+    });
+    console.log(`🚀  Server ready at: ${url}`);
+}
+
+startServer()

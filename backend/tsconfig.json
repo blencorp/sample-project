@@ -1,13 +1,30 @@
 {
     "compilerOptions": {
-      "rootDirs": ["src"],
-      "outDir": "dist",
-      "lib": ["es2020"],
-      "target": "es2020",
-      "module": "esnext",
-      "moduleResolution": "node",
-      "esModuleInterop": true,
-      "types": ["node"]
-    }
-  }
-  
+        "moduleResolution": "node",
+        "strict": true,
+        "module": "commonjs",
+        "declaration": true,
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
+        "target": "ESNext",
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "incremental": true,
+        "lib": [
+            "ESNext"
+        ],
+       
+    },
+    "include": [
+        "src/**/*",
+        "src/data.json"
+      ]
+}
