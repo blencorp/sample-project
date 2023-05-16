@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "strict": true,
+        "module": "commonjs",
+        "declaration": true,
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
+        "target": "ESNext",
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "incremental": true,
+        "lib": [
+            "ESNext"
+        ],
+       
+    },
+    "include": [
+        "src/**/*",
+        "src/data.json"
+      ]
+}
