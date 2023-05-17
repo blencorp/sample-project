@@ -6,17 +6,22 @@ const dataPath = path.join(__dirname, 'data.json');
 const data = fs.readFileSync(dataPath);
 const clients: Client[] = JSON.parse(data.toString()).clients;
 
-export const getClients = (): Client[] => {
-    return clients.map(client => ({
-        id: client.id,
-        name: client.name,
-        age: client.age,
-        gender: client.gender,
-        additionalInfo: {
-            company: client.additionalInfo.company,
-            email: client.additionalInfo.email,
-            phone: client.additionalInfo.phone,
-            address: client.additionalInfo.address,
-        },
+export const getClients = (id?: string): Client[] => {
+    let filteredClients = clients;
+    if (id) {
+      filteredClients = clients.filter((client: Client) => client.id === id);
+    }
+  
+    return filteredClients.map((client: Client) => ({
+      id: client.id,
+      name: client.name,
+      age: client.age,
+      gender: client.gender,
+      additionalInfo: {
+        company: client.additionalInfo.company,
+        email: client.additionalInfo.email,
+        phone: client.additionalInfo.phone,
+        address: client.additionalInfo.address,
+      },
     }));
-}
+  }
