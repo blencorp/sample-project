@@ -15,8 +15,11 @@
   "dependencies": {
     "@apollo/server": "^4.7.1",
     "@types/pg": "^8.6.6",
+    "class-validator": "^0.14.0",
     "graphql": "^16.6.0",
-    "pg": "^8.11.0"
+    "pg": "^8.11.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^2.0.0-beta.2"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
