@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: bcadmin
+      POSTGRES_PASSWORD: bcpassword
+      POSTGRES_DB: bcdatabase
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'pgdata:/var/lib/postgresql/data'
+      - './initial-sample.sql:/docker-entrypoint-initdb.d/initial-dample.sql'
+
+volumes:
+  pgdata:

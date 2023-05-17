@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { gql, useQuery } from '@apollo/client';
 import { useDispatch, useSelector } from 'react-redux';
 import { setClient } from '../store/clientSlice';
+import ErrorComponent  from '../components/Error'
 
 interface Client {
   id: string;
@@ -56,7 +57,7 @@ const Details = (): JSX.Element => {
   const client = useSelector((state: any) => state.client.clients[0]) as Client;
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :</p>;
+  if (error) return <ErrorComponent errorMessage={error.message}/>;
 
   return (
     <div className="container mx-auto p-4">
