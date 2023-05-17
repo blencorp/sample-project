@@ -19,7 +19,7 @@
         "outDir": "./dist",
         "incremental": true,
         "lib": [
-            "ESNext"
+            "ESNext", "esnext.asynciterable"
         ],
        
     },

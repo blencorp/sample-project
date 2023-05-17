@@ -1,57 +1,57 @@
-import {
-  GraphQLObjectType,
-  GraphQLSchema,
-  GraphQLString,
-  GraphQLID,
-  GraphQLInt,
-  GraphQLList,
-} from 'graphql';
-import getClients from './resolvers/index'
-import { Client } from './types'
+import "reflect-metadata";
+import { buildSchema, ObjectType, Field, ID, Int, Resolver, Query, Arg } from 'type-graphql';
+import getClients from './resolvers/index';
+import { Client } from './types';
 
+@ObjectType()
+class AdditionalInfo {
+  @Field(() => String)
+  company!: string;
 
+  @Field(() => String)
+  email!: string;
 
-const AdditionalInfoType = new GraphQLObjectType({
-  name: 'AdditionalInfo',
-  fields: {
-    company: { type: GraphQLString },
-    email: { type: GraphQLString },
-    phone: { type: GraphQLString },
-    address: { type: GraphQLString },
-  },
+  @Field(() => String)
+  phone!: string;
+
+  @Field(() => String)
+  address!: string;
+}
+
+@ObjectType()
+class ClientType {
+  @Field(() => ID)
+  id!: string;
+
+  @Field(() => String)
+  name!: string;
+
+  @Field(() => Int)
+  age!: number;
+
+  @Field(() => String)
+  gender!: string;
+
+  @Field(() => AdditionalInfo)
+  additionalInfo!: AdditionalInfo;
+}
+
+@Resolver()
+class ClientResolver {
+  @Query(() => ClientType, { nullable: true })
+  async client(@Arg('id', () => ID) id: string): Promise<Client | undefined> {
+    const clients = await getClients(id);
+    return clients[0];
+  }
+
+  @Query(() => [ClientType])
+  async clients(@Arg('id', () => ID, { nullable: true }) id?: string): Promise<Client[]> {
+    return await getClients(id);
+  }
+}
+
+const schema = buildSchema({
+  resolvers: [ClientResolver],
 });
 
-const ClientType = new GraphQLObjectType({
-  name: 'Client',
-  fields: {
-    id: { type: GraphQLID },
-    name: { type: GraphQLString },
-    age: { type: GraphQLInt },
-    gender: { type: GraphQLString },
-    additionalInfo: { type: AdditionalInfoType },
-  },
-})
-
-const QueryType = new GraphQLObjectType({
-  name: 'Query',
-  fields: {
-    client: {
-      type: ClientType,
-      args: {
-        id: { type: GraphQLID },
-      },
-      resolve: async (_parent, { id }: { id: string }): Promise<Client | undefined> => {
-        const clients = await getClients(id)
-        return clients[0]
-      }
-    },
-    clients: {
-      type: new GraphQLList(ClientType),
-      resolve: async (_parent, { id }: { id?: string }): Promise<Client[]> => await getClients(id),
-    },
-  },
-});
-
-const schema = new GraphQLSchema({ query: QueryType })
-
-export default schema
+export default schema;
