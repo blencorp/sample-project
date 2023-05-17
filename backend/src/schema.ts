@@ -30,18 +30,25 @@ const ClientType = new GraphQLObjectType({
       gender: { type: GraphQLString },
       additionalInfo: { type: AdditionalInfoType },
   },
-});
+})
 
 const QueryType = new GraphQLObjectType({
   name: 'Query',
   fields: {
+      client: {
+          type: ClientType,
+          args: {
+            id: { type: GraphQLID },
+          },
+          resolve: (_parent, { id }: { id: string }): Client | undefined => getClients(id)[0],
+      },
       clients: {
           type: new GraphQLList(ClientType),
-          resolve: (): Client[] => getClients()
+          resolve: (_parent, { id }: { id?: string }): Client[] => getClients(id),
       },
   },
 });
 
-const schema = new GraphQLSchema({ query: QueryType });
+const schema = new GraphQLSchema({ query: QueryType })
 
 export default schema
