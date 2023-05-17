@@ -3,6 +3,8 @@ import { gql, useQuery } from '@apollo/client';
 import { useDispatch, useSelector } from 'react-redux';
 import { setClients } from '../store/clientSlice';
 import { Client, MultipleClientState } from '../types';
+import ErrorComponent from '../components/Error';
+import Loader from '../components/Loader'
 
 const GET_CLIENTS = gql`
   query GetClient {
@@ -14,7 +16,7 @@ const GET_CLIENTS = gql`
   }
 `;
 
-function Home() {
+function Listing() {
   const dispatch = useDispatch();
 
   const { loading, error, data } = useQuery(GET_CLIENTS);
@@ -25,8 +27,8 @@ function Home() {
 
   const clients = useSelector((state: MultipleClientState) => state.client.clients);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :</p>;
+  if (loading) return <Loader />;
+  if (error) return <ErrorComponent errorMessage={error.message}/>;
 
   return (
     <div className="container mx-auto p-4">
@@ -58,4 +60,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Listing;

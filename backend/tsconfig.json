@@ -25,6 +25,6 @@
     },
     "include": [
         "src/**/*",
-        "src/data.json"
+        "src/resolvers/data.json"
       ]
 }

@@ -17,8 +17,8 @@
         "id": "59761c233d8d0f92a6b0570d",
         "age": 24,
         "name": "Kirsten Sellers",
-        "gender": "female",
         "additionalInfo": {
+          "gender": "female",
           "company": "EMERGENT",
           "email": "kirstensellers@emergent.com",
           "phone": "+1 (831) 564-2190",
@@ -29,8 +29,8 @@
         "id": "59761c23fcb6254b1a06dad5",
         "age": 30,
         "name": "Acosta Robbins",
-        "gender": "male",
         "additionalInfo": {
+          "gender": "male",
           "company": "ORGANICA",
           "email": "acostarobbins@organica.com",
           "phone": "+1 (882) 441-3367",

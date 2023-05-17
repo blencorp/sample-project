@@ -3,6 +3,7 @@ export interface AdditionalInfo {
     email: string;
     phone: string;
     address: string;
+    gender?: string;
 }
 
 export interface Client {
