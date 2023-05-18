@@ -7,7 +7,7 @@
     "compile": "tsc",
     "watch": "tsc -w",
     "start": "npm run compile && node ./dist/index.js",
-    "develop": "npm run watch && nodemon ./dist/index.js"
+    "develop": "nodemon ./dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +18,9 @@
     "class-validator": "^0.14.0",
     "graphql": "^16.6.0",
     "pg": "^8.11.0",
+    "pg-hstore": "^2.3.4",
     "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.31.1",
     "type-graphql": "^2.0.0-beta.2"
   },
   "devDependencies": {

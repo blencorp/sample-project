@@ -7,7 +7,7 @@ export const getClientsFromDB = async (id?: string): Promise<Client[]> => {
   let query = `
     SELECT c.id, c.name, c.age, c.gender, i.company, i.email, i.phone, i.address
     FROM clients c
-    LEFT JOIN client_info i ON c.id = i.client_id
+    LEFT JOIN additional_info i ON c.id = i.client_id
   `;
 
   if (id) {
