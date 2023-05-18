@@ -2,28 +2,9 @@ import { useParams } from 'react-router-dom';
 import { gql, useQuery } from '@apollo/client';
 import { useDispatch, useSelector } from 'react-redux';
 import { setClient } from '../store/clientSlice';
-import ErrorComponent  from '../components/Error'
-
-interface Client {
-  id: string;
-  name: string;
-  age: number;
-  gender: string;
-  additionalInfo: {
-    company: string;
-    email: string;
-    phone: string;
-    address: string;
-  };
-}
-
-interface ClientData {
-  client: Client;
-}
-
-interface ClientVars {
-  id: string;
-}
+import ErrorComponent from '../components/Error'
+import Loader from '../components/Loader'
+import { ClientData , ClientVars, Client, MultipleClientState } from '../types';
 
 const GET_CLIENTS = gql`
   query GetClient($id: ID!) {
@@ -54,10 +35,11 @@ const Details = (): JSX.Element => {
     dispatch(setClient(data.client));
   }
 
-  const client = useSelector((state: any) => state.client.clients[0]) as Client;
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <ErrorComponent errorMessage={error.message}/>;
+  const client = useSelector((state: MultipleClientState) => state.client.clients[0] as Client);
+
+  if (loading) return <Loader />;
+  if (error) return <ErrorComponent errorMessage={error.message} />;
 
   return (
     <div className="container mx-auto p-4">
@@ -91,25 +73,25 @@ const Details = (): JSX.Element => {
           <label className="block text-gray-700 font-bold mb-2" htmlFor="company">
             Company
           </label>
-          <p className="text-gray-700">{client.additionalInfo.company}</p>
+          <p className="text-gray-700">{client.additionalInfo?.company}</p>
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
             Email
           </label>
-          <p className="text-gray-700">{client.additionalInfo.email}</p>
+          <p className="text-gray-700">{client.additionalInfo?.email}</p>
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="phone">
             Phone
           </label>
-          <p className="text-gray-700">{client.additionalInfo.phone}</p>
+          <p className="text-gray-700">{client.additionalInfo?.phone}</p>
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="address">
             Address
           </label>
-          <p className="text-gray-700">{client.additionalInfo.address}</p>
+          <p className="text-gray-700">{client.additionalInfo?.address}</p>
         </div>
       </div>
     </div>

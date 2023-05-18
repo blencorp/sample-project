@@ -39,7 +39,7 @@ class ClientType {
 @Resolver()
 class ClientResolver {
   @Query(() => ClientType, { nullable: true })
-  async client(@Arg('id', () => ID) id: string): Promise<Client | undefined> {
+  async client(@Arg('id', () => ID) id: string): Promise<Client> {
     const clients = await getClients(id);
     return clients[0];
   }

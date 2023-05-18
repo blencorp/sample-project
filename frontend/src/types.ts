@@ -10,7 +10,7 @@ export interface Client {
     name: string;
     age: number;
     gender: string;
-    additionalInfo: AdditionalInfo;
+    additionalInfo?: AdditionalInfo;
 }
 
 export interface ClientState {
@@ -21,4 +21,12 @@ export interface ClientState {
     client: {
         clients: Client[]
     }
+  }
+
+  export interface ClientData {
+    client: Client;
+  }
+  
+  export interface ClientVars {
+    id: string;
   }
