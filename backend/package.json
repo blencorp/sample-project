@@ -7,7 +7,9 @@
     "compile": "tsc",
     "watch": "tsc -w",
     "start": "npm run compile && node ./dist/index.js",
-    "develop": "nodemon ./dist/index.js"
+    "develop": "nodemon ./dist/index.js",
+    "migrate": "sequelize db:migrate",
+    "generate-migration": "sequelize migration:generate --name=create-sample-project-backend"
   },
   "keywords": [],
   "author": "",

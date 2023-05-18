@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "${PG_USER}",
+    "password": "${PG_PASSWORD}",
+    "database": "${PG_DATABASE}",
+    "host": "localhost",
+    "dialect": "postgers"
+  },
+  "test": {
+    "username": "${PG_USER}",
+    "password": "${PG_PASSWORD}",
+    "database": "${PG_DATABASE}",
+    "host": "localhost",
+    "dialect": "postgers"
+  },
+  "production": {
+    "username": "${PG_USER}",
+    "password": "${PG_PASSWORD}",
+     "database": "${PG_DATABASE}",
+    "host": "localhost",
+    "dialect": "postgers"
+  }
+}
