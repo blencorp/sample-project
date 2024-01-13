@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "michaelshimeles",
+    "password": null,
+    "database": "client",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "michaelshimeles",
+    "password": null,
+    "database": "client",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "michaelshimeles",
+    "password": null,
+    "database": "client",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
