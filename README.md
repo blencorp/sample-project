@@ -1,132 +1,59 @@
-# BLEN Sample Project
+**Project Title**
 
-Thanks for your interest.
+GraphQL-Powered Client Management System
 
-Create a `React` and `Node.js` backend application using `GraphQL`.
+**Description**
 
-## Getting Started
+This project is a full-stack application developed with Node.js, GraphQL, React, and Apollo Client. The backend utilizes Node.js with Apollo Server to create a GraphQL API, while the frontend is built using React with Apollo Client and Vite. The project includes an Apollo Server that serves client data from a JSON file, a React frontend that fetches and displays data, and navigation between listing and detail pages using React Router. The project adheres to clean code practices and is fully documented. The instructions for this project were pulled from the[BLEN Corp sample project repository.](https://github.com/blencorp/sample-project.git)
 
-- Fork this repo to your own account.
-- Build the application as per the [Instructions](#instructions) below.
-- This application needs to be written fully in `TypeScript`. Define types as much as possible. Do not use `any` type.
-- We'll be looking for clean code as much as possible.
-- Once done, please commit your code to your forked repo and share the link with us.
+**Detailed Description About the Project Overview**
 
-Good luck
+This project consists of a full-stack application built with Node.js, GraphQL, React, and Apollo Client. The backend is developed using Node.js with Apollo Server to create a GraphQL API, while the frontend is created using React with Apollo Client and Vite.
 
-## [Instructions](#instructions)
+**Backend Setup**
 
-Folder structure is up to you. You can use the following structure:
+- Clone the Repository:
+ Clone the repository to your local machine using the git clone command. You can pull from https://github.com/blencorp/sample-project.git to get the instruction for the project.
 
-```bash
-├── backend
-│   ├── src
-│   │   ├── index.ts
-│   │   ├── schema.ts
-│   │   ├── resolvers.ts
-│   │   └── data.json
-│   ├── package.json
-│   ├── tsconfig.json
-│   └── ...
-├── frontend
-│   ├── src
-│   │   ├── index.tsx
-│   │   ├── App.tsx
-│   │   ├── pages
-│   │   │   ├── listing.tsx
-│   │   │   └── detail.tsx
-│   │   └── ...
-│   ├── package.json
-│   ├── tsconfig.json
-│   └── ...
-├── README.md
-└── ...
-```
+- Initialize Backend:
+ Navigate to the backend directory.
+ Initialize a new Node.js project with npm init -y.
+ Install necessary dependencies for the backend using npm install.
+ Create the GraphQL schema, resolvers, and server setup files.
 
-### [Backend](#backend)
+- Compile and Run Server:
+  Compile the TypeScript files with npx tsc.
+  Start the server with npx ts-node src/index.ts.
+  
+- Test the GraphQL Endpoint:
+ Access the GraphQL playground in your browser at http://localhost:4000/ to test the API.
 
-- Read the [Sample data](#data) using the [`File system`](https://nodejs.org/api/fs.html) module. You can create a `data.json` file and read the data from it.
-- Create a `GraphQL` server using [`Apollo Server`](https://www.apollographql.com/docs/apollo-server/) and expose the data as follows:
-  - Create a `Query` type with a `clients` field that returns the list of clients.
-  - Create a `Client` type with the following fields:
-    - `id`
-    - `name`
-    - `age`
-    - `gender`
-    - `additionalInfo`
-  - Create a `AdditionalInfo` type with the following fields:
-    - `company`
-    - `email`
-    - `phone`
-    - `address`
+**Frontend Setup**
 
-### [Frontend](#frontend)
+- Create React App with Vite:
 
-- Create a `React` application using [`Vite`](https://vitejs.dev/).
-- Read data from the `GraphQL` server using Apollo client and render the data as follows:
-  - Store read data in a global state using React context or Redux/Redux toolkit.
-  - Create a listing page that shows the `id`, `name` and `age` of the clients in a table. When the user clicks on the `name`, navigate to a detail page. Use `react-router-dom`. Use version 6.4 or above. Usage of route `loader`, `Outlet`, `defer`, `Awaited` and `Suspense` is a plus.
-  - Create a detail page that shows the `id`, `name`, `age`, `gender` and `additionalInfo` of the client.
-  - Style the pages as you see fit. Feel free to use one of the CSS frameworks below:
-    - [USWDS](https://designsystem.digital.gov/)
-    - [Tailwind CSS](https://tailwindcss.com/)
-    - [Chakra UI](https://chakra-ui.com/)
+- Navigate back to the parent directory.
+Create a new React application using Vite with TypeScript template.
+Install Apollo Client and GraphQL dependencies for the frontend.
+Start Development Server:
 
-## [Bonus](#bonus)
+- Navigate to the newly created frontend directory.
+Start the development server with npm run dev.
 
-Some of the following are not required but will be a plus.
+**Git Commands**
 
-- Store the data in a database. You can use [`PostgreSQL`](https://www.postgresql.org/) or [`MySQL`](https://www.mysql.com/).
-- Use [`TypeGraphQL`](https://typegraphql.com/) to define the `GraphQL` schema.
-- Use [`Sequelize`](https://sequelize.org/) to define the database models.
-- Create migrations for the database models.
-- Create unit tests for the backend using [`Jest`](https://jestjs.io/).
-- Create unit tests for the frontend using [`Jest`](https://jestjs.io/) and [`React Testing Library`](https://testing-library.com/docs/react-testing-library/intro/).
-- Use codegen to generate types for the `GraphQL` schema to be used in the frontend.
+- Add Changes:
+Add the changes to Git with git add ...
 
-## [Sample data](#data)
+- Commit Changes:
+Commit the changes with a descriptive message using git commit -m "Initial commit".
 
-```json
-{
-  "clients": [
-    {
-      "id": "59761c23b30d971669fb42ff",
-      "age": 36,
-      "name": "Dunlap Hubbard",
-      "gender": "male",
-      "additionalInfo": {
-        "company": "CEDWARD",
-        "email": "dunlaphubbard@cedward.com",
-        "phone": "+1 (890) 543-2508",
-        "address":
-          "169 Rutledge Street, Konterra, Northern Mariana Islands, 8551"
-      }
-    },
-    {
-      "id": "59761c233d8d0f92a6b0570d",
-      "age": 24,
-      "name": "Kirsten Sellers",
-      "additionalInfo": {
-        "gender": "female",
-        "company": "EMERGENT",
-        "email": "kirstensellers@emergent.com",
-        "phone": "+1 (831) 564-2190",
-        "address": "886 Gallatin Place, Fannett, Arkansas, 4656"
-      }
-    },
-    {
-      "id": "59761c23fcb6254b1a06dad5",
-      "age": 30,
-      "name": "Acosta Robbins",
-      "additionalInfo": {
-        "gender": "male",
-        "company": "ORGANICA",
-        "email": "acostarobbins@organica.com",
-        "phone": "+1 (882) 441-3367",
-        "address": "697 Linden Boulevard, Sattley, Idaho, 1035"
-      }
-    },
-  ]
-}
+- Push Changes:
+Push the changes to the remote repository on the main branch with git push origin main.
 
-```
+**Pull Request**
+
+Once the changes are pushed to the remote repository, open a new pull request by comparing changes across two branches. Provide a title and a description for the pull request before submitting it for review.
+
+**Additional Information**
+ If you encounter any issues or have questions, feel free to reach out for assistance.
