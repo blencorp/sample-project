@@ -1,0 +1,51 @@
+body {
+    background-color: #e0f7fa;
+  }
+  
+  .list{
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    margin-left: 100px;
+    margin-right: 200px;
+    margin-bottom: 20px;
+    padding: 40px;
+  }
+  
+  h1{
+    color: #00796b;
+  }
+
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  thead {
+    background-color: bisque;
+  }
+
+  thead th{
+    padding: 10px;
+    text-align: left;
+  }
+
+  tbody {
+    background-color: #93b4a9;
+  }
+
+  tbody td{
+    padding:0%;
+    border-bottom: 1px solid #080101bd;
+    font-size: 20px;
+  }
+
+  a {
+    color: #05786b;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,17 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: rgba(109, 195, 233, 0.436);
+  margin-top: 150px;
+  margin-left: 200px;
+  margin-right: 300px;
+  padding: 20px;
+  color: #175c56;
+}
+
+p {
+  line-height: 2.5;
+}
+
+h2 {
+  color: #082f54;
+}
